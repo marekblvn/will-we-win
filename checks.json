@@ -1,0 +1,57 @@
+[
+  {
+    "key": "q1",
+    "text": "Máme AP damage?",
+    "value": 10
+  },
+  {
+    "key": "q2",
+    "text": "Hraje Adam šampiona, který se nenachází v záložce 'Supports'?",
+    "value": -20
+  },
+  {
+    "key": "q3",
+    "text": "Má Mestogan dobrou náladu?",
+    "value": 10
+  },
+  {
+    "key": "q4",
+    "text": "Je v enemy týmu Pyke nebo Darius?",
+    "value": -40
+  },
+  {
+    "key": "q5",
+    "text": "Hraje Mára tanka?",
+    "value": 0
+  },
+  {
+    "key": "q6",
+    "text": "Je po 23:00?",
+    "value": -10
+  },
+  {
+    "key": "q7",
+    "text": "Hraje Astral Zileana nebo Auroru?",
+    "value": 30
+  },
+  {
+    "key": "q8",
+    "text": "Máme engage?",
+    "value": 20
+  },
+  {
+    "key": "q9",
+    "text": "Je Aenn muted na Discordu?",
+    "value": -30
+  },
+  {
+    "key": "q10",
+    "text": "Mluvil v champ selectu o draftu někdo jiný než Astral a Mára?",
+    "value": 40
+  },
+  {
+    "key": "q11",
+    "text": "Řekl Mestogan v champ selectu že 'musí na botu hrát safe'?",
+    "value": -100
+  }
+]
