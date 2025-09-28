@@ -16,7 +16,6 @@ function App() {
 
   const handleSubmitForm = useCallback(
     (values: Record<string, boolean>) => {
-      console.log(values);
       let total = 0;
       checks.forEach((q) => {
         if (values[q.key]) {
@@ -24,7 +23,6 @@ function App() {
         }
       });
       setScore(total);
-      console.log(total);
     },
     [checks]
   );
