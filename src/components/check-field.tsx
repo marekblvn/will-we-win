@@ -11,7 +11,7 @@ export default function CheckField({ text, name }: CheckFieldProps) {
       <Col flex={"auto"}>
         <Typography>{text}</Typography>
       </Col>
-      <Col flex={"100px"}>
+      <Col flex={"80px"}>
         <Form.Item name={name} valuePropName="checked">
           <Switch
             className="custom-switch"

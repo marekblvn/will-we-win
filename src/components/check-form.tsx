@@ -24,9 +24,10 @@ export default function CheckForm({ onSubmit, checks }: CheckFormProps) {
       layout="horizontal"
       onFinish={onSubmit}
       initialValues={{}}
+      style={{ marginTop: "24px" }}
     >
       {formFields}
-      <Flex justify="center" style={{ marginTop: "32px" }}>
+      <Flex justify="center" style={{ marginTop: "16px" }}>
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Vyhrajeme?

@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import CheckForm from "./components/check-form";
-import Header from "./components/header";
 import type { Check } from "./types";
 import ScoreDisplay from "./components/score-display";
+import { Layout } from "antd";
+import HeaderInfo from "./components/header-info";
+import { Content, Footer, Header } from "antd/es/layout/layout";
+import FooterInfo from "./components/footer-info";
 
 function App() {
   const [checks, setChecks] = useState<Array<Check>>([]);
@@ -27,11 +30,18 @@ function App() {
     [checks]
   );
   return (
-    <div>
-      <Header />
-      <CheckForm onSubmit={handleSubmitForm} checks={checks} />
-      <ScoreDisplay score={score} />
-    </div>
+    <Layout>
+      <Header>
+        <HeaderInfo />
+      </Header>
+      <Content>
+        <CheckForm onSubmit={handleSubmitForm} checks={checks} />
+        <ScoreDisplay score={score} />
+      </Content>
+      <Footer>
+        <FooterInfo />
+      </Footer>
+    </Layout>
   );
 }
 

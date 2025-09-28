@@ -6,7 +6,7 @@ interface ScoreDisplayProps {
 
 export default function ScoreDisplay({ score }: ScoreDisplayProps) {
   const determineResult = () => {
-    if (score === null) return "";
+    if (score === null) return "?";
     if (score <= -20) {
       return "Ani náhodou";
     } else if (score > -20 && score <= 0) {
@@ -18,8 +18,15 @@ export default function ScoreDisplay({ score }: ScoreDisplayProps) {
     }
   };
   return (
-    <Flex vertical align={"center"}>
-      <Typography.Title level={5}>{determineResult()}</Typography.Title>
+    <Flex
+      vertical
+      align={"center"}
+      justify="center"
+      style={{ marginBottom: "24px" }}
+    >
+      <div>
+        <Typography.Title level={5}>{determineResult()}</Typography.Title>
+      </div>
     </Flex>
   );
 }
