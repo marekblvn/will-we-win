@@ -9,7 +9,7 @@ function App() {
   const [score, setScore] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("/checks.json")
+    fetch(`${import.meta.env.BASE_URL}checks.json`)
       .then((res) => res.json())
       .then((data) => setChecks(data));
   }, []);
