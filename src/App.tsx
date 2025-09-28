@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useCallback, useEffect, useState } from "react";
+import CheckForm from "./components/check-form";
+import Header from "./components/header";
+import type { Check } from "./types";
+import ScoreDisplay from "./components/score-display";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [checks, setChecks] = useState<Array<Check>>([]);
+  const [score, setScore] = useState<number | null>(null);
 
+  useEffect(() => {
+    fetch("/checks.json")
+      .then((res) => res.json())
+      .then((data) => setChecks(data));
+  }, []);
+
+  const handleSubmitForm = useCallback(
+    (values: Record<string, boolean>) => {
+      console.log(values);
+      let total = 0;
+      checks.forEach((q) => {
+        if (values[q.key]) {
+          total += q.value;
+        }
+      });
+      setScore(total);
+      console.log(total);
+    },
+    [checks]
+  );
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Header />
+      <CheckForm onSubmit={handleSubmitForm} checks={checks} />
+      <ScoreDisplay score={score} />
+    </div>
+  );
 }
 
-export default App
+export default App;
